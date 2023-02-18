@@ -17,6 +17,7 @@ int bstStrlen(char *s)
 {
   char *sc = s;
   while (*sc++)
+    ;
   return sc - s;
 }
 
@@ -32,7 +33,7 @@ bstInsert(BstNode **rootp, char *str)
     int len = bstStrlen(str), sindex = 0;
     char *scopy = malloc((len + 1) * sizeof(char)), c;
     do {	
-      c = *(scopy+sindex) = *(str+sindex);
+      c = *(scopy+sindex) = *(str+sindex); /* c = scopy[sindex] = str[sindex] */
       sindex++;
     } while (c);
     newNode->str = scopy;
