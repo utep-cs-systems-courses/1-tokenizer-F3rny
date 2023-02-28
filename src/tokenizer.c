@@ -113,9 +113,9 @@ char **tokenize(char* str){
     str = word_start(str);
     char *last = word_terminator(str);
     int wlength = last - str;
-    printf("length: %d\n",wlength);
+    //printf("length: %d\n",wlength);
     *(tokens+i) = copy_str(str, wlength);
-    printf("%s\n", *(tokens + i));
+    //printf("%s\n", *(tokens + i));
     str = last;
   }
   *(tokens + (len-1)) = '\0';
