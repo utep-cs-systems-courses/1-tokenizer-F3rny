@@ -92,7 +92,7 @@ char *copy_str(char *inStr, short len){
     outStr[i] = inStr[i];
     i++;
   }
-  outStr[len+1] = '\0';
+  outStr[i] = '\0';
   return outStr;
 
 }
@@ -107,7 +107,7 @@ char *copy_str(char *inStr, short len){
 */
 char **tokenize(char* str){
   int len = count_words(str)+1;
-  char **tokens = malloc(sizeof(char) * len);
+  char **tokens = malloc(sizeof(char*) * len);
   //printf("%d\n", len);
   for(int i = 0; i < len-1; i++){
     str = word_start(str);
@@ -132,5 +132,10 @@ void print_tokens(char **tokens){
 
 /* Frees all tokens and the vector containing themx. */
 void free_tokens(char **tokens){
+  char **temp = tokens;
+  while(*temp != NULL){
+    free(*temp);
+    temp++;
+  }
   free(tokens);
 }

@@ -13,7 +13,7 @@ List* init_history(){
 }
 void add_history(List *list, char *str){
   Item *temp = (Item*) malloc(sizeof(Item));
-  temp -> next = NULL;
+  temp-> next = NULL;
   
   int sindex = 0;
   while(*(str+sindex) != '\0'){
@@ -22,11 +22,12 @@ void add_history(List *list, char *str){
   }
   temp->str = copy_str(str, sindex);
   if(list -> root == NULL){
-    temp -> id = 0;
+    list-> root = temp;
+    temp -> id = 1;
   }
   else{
     Item *current_Item = list -> root;
-    int id_next = 1;
+    int id_next = 2;
     while(current_Item-> next != NULL){
       id_next += 1;
       current_Item = current_Item -> next;
@@ -35,8 +36,7 @@ void add_history(List *list, char *str){
     current_Item -> next = temp;
     
   }
-  temp -> next = list -> root;
-  list -> root = temp;
+  
 }
 char *get_history(List *list, int id){
   Item *current = list -> root;

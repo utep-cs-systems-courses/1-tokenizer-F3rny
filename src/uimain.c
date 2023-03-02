@@ -25,7 +25,7 @@ int main()
 
       printf("Enter character 'c' to write string , 'h' to view history , 'g' get history, 'q' to quit \n");
 
-      scanf("%s", &checkpoint);
+      scanf("%s", checkpoint);
 
       getchar(); //consume the newline char left in input buffer
 
@@ -60,7 +60,7 @@ int main()
 	break;
 
       case 'h':
-
+	printf("\n");
 	print_history(history);
 
 	break;
@@ -69,7 +69,7 @@ int main()
 
 	printf("Please enter a number by using command (!#)\n");
 
-	scanf("%s", &command);
+	scanf("%s", command);
 
 	getchar();
 
